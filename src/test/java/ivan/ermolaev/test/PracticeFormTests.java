@@ -4,8 +4,10 @@ import io.qameta.allure.Owner;
 import ivan.ermolaev.pages.RegistrationPage;
 import ivan.ermolaev.utils.FakeData;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("systemProperties")
 public class PracticeFormTests  extends TestBase {
 
     @Test
