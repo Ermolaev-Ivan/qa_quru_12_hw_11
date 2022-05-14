@@ -12,16 +12,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
-
 public class TestBase {
-
 
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
-
-
 
         String login = config.login();
         String password = config.password();
@@ -32,8 +28,6 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("version", "100");
         Configuration.browserSize = System.getProperty("browserSize", "2560x1440");
         Configuration.remote = "https://" + login + ":" + password +"@" + url;
-
-
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
