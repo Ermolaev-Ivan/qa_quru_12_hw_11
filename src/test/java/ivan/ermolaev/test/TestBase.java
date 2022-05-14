@@ -2,8 +2,10 @@ package ivan.ermolaev.test;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import ivan.ermolaev.Config.CredentialsConfig;
 import ivan.ermolaev.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -17,9 +19,12 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
 
-        String login = System.getProperty("login", "user1");
-        String password = System.getProperty("password", "1234");
+
+
+        String login = config.login();
+        String password = config.password();
         String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub");
 
         Configuration.browser = System.getProperty("browser", "chrome");

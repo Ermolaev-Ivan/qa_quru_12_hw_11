@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 public class PracticeFormTests  extends TestBase {
 
     @Test
+    @Tag("owner")
     @Owner("Ermolaev Ivan")
     @DisplayName("Test Practice Form")
     void formTest() {
